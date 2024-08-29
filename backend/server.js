@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser'
-import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 import connectMongoDB from './db/connectMongoDB.js';
@@ -17,7 +16,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.json({limit : "6mb"})); // parse req.body (data of user coming from frontend)
 app.use(express.urlencoded({extended : true})); // to parse form data
-app.use(cookieParser());
+app.use(cookieParser());//parse the cookies
 
 
 app.use('/api/auth', authRoute);
